@@ -7,14 +7,13 @@
             <div class="col-lg-5 col-md-7">
                 <div class="card bg-secondary shadow border-0">
                     <div class="card-body px-lg-5 py-lg-5">
-                        @if($errors->any())
-
+                        @if ($errors->any())
                             <div class="text-center text-muted mb-2">
                                 <small>Se encontro el siguiente error.</small>
                             </div>
 
                             <div class="alert alert-danger mb-4" role="alert">
-                                {{$errors->first()}}
+                                {{ $errors->first() }}
                             </div>
                         @else
                             <div class="text-center text-muted mb-4">
@@ -22,14 +21,15 @@
                             </div>
                         @endif
 
-                        <form role="form"  method="POST" action="{{ route('login') }}">
+                        <form role="form" method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group mb-3">
                                 <div class="input-group input-group-alternative">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input class="form-control" placeholder="Correo electronico" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    <input class="form-control" placeholder="Correo electronico" type="email"
+                                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -37,15 +37,18 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                                     </div>
-                                    <input class="form-control" placeholder="Contraseña" type="password"  name="password" required autocomplete="current-password">
+                                    <input class="form-control" placeholder="Contraseña" type="password" name="password"
+                                        required autocomplete="current-password">
                                 </div>
                             </div>
+
                             <div class="custom-control custom-control-alternative custom-checkbox">
-                                <input class="remember" id="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
-                                <label class="custom-control-label" for="remember">
-                                    <span class="text-muted">Recordar sesion</span>
+                                <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                                <label class="custom-control-label" for="customCheckRegister">
+                                    <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
                                 </label>
                             </div>
+
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary my-4">Empezar</button>
                             </div>
@@ -54,7 +57,8 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-6">
-                        <a href="{{ route('password.request') }}" class="text-light"><small>Olvidaste tu contraseña?</small></a>
+                        <a href="{{ route('password.request') }}" class="text-light"><small>Olvidaste tu
+                                contraseña?</small></a>
                     </div>
                     <div class="col-6 text-right">
                         <a href="{{ route('register') }}" class="text-light"><small>Crear nueva cuenta</small></a>
